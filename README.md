@@ -2,20 +2,21 @@
 
 Command line [Hangman Game](https://en.wikipedia.org/wiki/Hangman_(game)). 
 
-[Installation](#installation)
+[Installation](#installation) • [How to play?](#how-to-play) • [List of words](#list-of-words)
 
 
 ## Installation 
 
-- Clone the project
-```bash
-git clone https://github.com/bloodymosquito/hangman
-```
+`git clone https://github.com/bloodymosquito/hangman`
 
-- Run `main.py` with **python 3** 
+## How to play?
 
-## Select a list of words
+`python main.py`
 
-- English: `python main.py --words english.txt`
-- French: `python main.py --words french.txt`
+## List of words
+### Available lists
+- 100k English words (default): `python main.py --words english.txt`
+- 138k French words: `python main.py --words french.txt`
 
+### Custom list
+Create a custom list of words and save it in a text file, one word per line. Then: `python main.py --words <your_file>`
