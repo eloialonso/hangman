@@ -138,8 +138,8 @@ def game(words, n_trials=8, draw=False):
     previous_message = "\n"
     while trial <= n_trials:
         clear()
-	print(previous_message)
-	print("Used letters: {}".format(used_letters))
+        print(previous_message)
+        print("Used letters: {}".format(used_letters))
         print("Word: {}".format(revealed_word))
         if draw:
             draw_hangman(step)
