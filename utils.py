@@ -230,5 +230,5 @@ def load_words(fname):
     assert os.path.exists(fname), "{}: not found".format(fname)
     with open(fname, "r") as f:
         words = f.read().split("\n")
-    return words
+    return [word.lower() for word in words]
 
