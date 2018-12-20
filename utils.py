@@ -135,8 +135,10 @@ def game(words, n_trials=8, draw=False):
     revealed_word = init_stars(word)
     trial = 1
     used_letters = []
+    previous_message = "\n"
     while trial <= n_trials:
         clear()
+	print(previous_message)
 	print("Used letters: {}".format(used_letters))
         print("Word: {}".format(revealed_word))
         if draw:
@@ -146,23 +148,21 @@ def game(words, n_trials=8, draw=False):
         if letter.lower() == "stop":
             return 0, False
         if len(letter) != 1:
-            print("You must enter one and only one letter!\n\n")
+            previous_message = "You must enter one and only one letter!\n"
             continue
         if letter in map(str.lower, used_letters):
-            print("You already tried this letter!\n\n")
+            previous_message = "You already tried this letter! \n"
             continue
         if letter not in alphabet:
-            print("This letter is not valid!\n\n")
+            previous_message = "This letter is not valid! \n"
             continue
         used_letters.append(letter.upper())
         tmp_word = reveal_letter(word, revealed_word, letter)
         # Winning
         if tmp_word == word:
             s = "" if trial == 1 else "s"
-            used_letters.sort(key=lambda v: v.upper())
-            print("Used letters: {}".format(used_letters))
-            print("Word: {}".format(word))
-            print("\n\nCONGRATULATIONS! You found '{}' in {} trial{}".format(word, trial, s))
+            clear()
+            print("*** CONGRATULATIONS! \nYou found '{}' in {} trial{}".format(word, trial, s))
             # compute score
             score = n_trials - trial + 1
             print("Your score: {}".format(score))
@@ -170,24 +170,24 @@ def game(words, n_trials=8, draw=False):
         # Good letter
         if tmp_word != revealed_word:
             used_letters.sort(key=lambda v: v.upper())
-            print("Well done, this letter is right!")
+            previous_message = "Well done, this letter ('{}') is right! \n".format(letter)
         # Bad letter
         else:
             used_letters.pop()
             used_letters.append(letter.lower())
             used_letters.sort(key=lambda v: v.upper())
-            print("Too bad!")
+            previous_message = "Wrong letter ('{}'), too bad! \n".format(letter)
             trial += 1
             step += 1
         revealed_word = tmp_word
         print("\n\n")
     # Defeat
     clear()
-    print("Word: {}".format(revealed_word))
+    print("Final guess: {}\n".format(revealed_word))
     if draw:
         draw_hangman(step)
 
-    print("Game over! The word to guess was: {}".format(word))
+    print("*** GAME OVER! \nThe hidden word was: {}".format(word))
     return 0, True
 
 
