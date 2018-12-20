@@ -19,4 +19,4 @@ A command line [Hangman Game](https://en.wikipedia.org/wiki/Hangman_(game)).
 - 138k French words: `python main.py --words french.txt`
 
 ### Custom list
-Create a custom list of words and save it in a text file, one word per line. Then: `python main.py --words <your_file>`
+Create a custom list of words and save it in a text file, **one word per line**. Then: `python main.py --words <your_file>`
