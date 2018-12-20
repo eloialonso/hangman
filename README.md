@@ -2,7 +2,7 @@
 
 A command line [Hangman Game](https://en.wikipedia.org/wiki/Hangman_(game)). 
 
-[Installation](#installation) • [How to play?](#how-to-play) • [List of words](#list-of-words)
+[Installation](#installation) • [How to play?](#how-to-play) • [List of words](#list-of-words) • [Save players and scores](#save-players-and-scores)
 
 
 ## Installation 
@@ -20,3 +20,5 @@ A command line [Hangman Game](https://en.wikipedia.org/wiki/Hangman_(game)).
 
 ### Custom list
 Create a custom list of words and save it in a text file, **one word per line**. Then: `python main.py --words <your_file>`
+
+# Save players and scores
