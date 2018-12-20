@@ -6,6 +6,13 @@ import json
 import random
 
 
+# For python 2/3 compatibility
+try:
+    input = raw_input
+except NameError:
+    pass
+
+
 def reset_scores(score_file):
     r"""Reset scores
     Arguments:
