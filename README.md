@@ -2,6 +2,8 @@
 
 A command line [Hangman Game](https://en.wikipedia.org/wiki/Hangman_(game)). 
 
+![Hangman Gif](img/hangman.gif)
+
 [Installation](#installation) • [How to play?](#how-to-play) • [List of words](#list-of-words) • [Save players and scores](#save-players-and-scores)
 
 
