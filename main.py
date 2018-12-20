@@ -10,6 +10,13 @@ import argparse
 from utils import *
 
 
+# For python 2/3 compatibility
+try:
+    input = raw_input
+except NameError:
+    pass
+
+
 def parse_arguments():
     
     parser = argparse.ArgumentParser(description="Hangman game", formatter_class=argparse.RawTextHelpFormatter)
