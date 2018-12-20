@@ -6,11 +6,14 @@ import json
 import random
 
 
-# For python 2/3 compatibility
 try:
     input = raw_input
 except NameError:
     pass
+
+
+clear = lambda: os.system('clear||cls')
+
 
 
 def reset_scores(score_file):
@@ -133,7 +136,8 @@ def game(words, n_trials=8, draw=False):
     trial = 1
     used_letters = []
     while trial <= n_trials:
-        print("Used letters: {}".format(used_letters))
+        clear()
+	print("Used letters: {}".format(used_letters))
         print("Word: {}".format(revealed_word))
         if draw:
             draw_hangman(step)
@@ -177,7 +181,9 @@ def game(words, n_trials=8, draw=False):
             step += 1
         revealed_word = tmp_word
         print("\n\n")
-
+    # Defeat
+    clear()
+    print("Word: {}".format(revealed_word))
     if draw:
         draw_hangman(step)
 
@@ -231,4 +237,3 @@ def load_words(fname):
     with open(fname, "r") as f:
         words = f.read().split("\n")
     return [word.lower() for word in words]
-
