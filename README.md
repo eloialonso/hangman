@@ -1,6 +1,6 @@
 # Hangman Game
 
-Command line [Hangman Game](https://en.wikipedia.org/wiki/Hangman_(game)). 
+A command line [Hangman Game](https://en.wikipedia.org/wiki/Hangman_(game)). 
 
 [Installation](#installation) • [How to play?](#how-to-play) • [List of words](#list-of-words)
 
