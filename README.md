@@ -13,7 +13,10 @@ A command line [Hangman Game](https://en.wikipedia.org/wiki/Hangman_(game)).
 
 ## How to play?
 
-`python main.py`
+```bash
+cd hangman
+python main.py
+```
 
 ## List of words
 ### Available lists
