@@ -23,7 +23,10 @@ def parse_arguments():
     
     parser.add_argument("--words", type=str, default="./english.txt",
                          help="path to the file containing the list of allowed words to play with")
-    
+    parser.add_argument("--save", action="store_true", 
+                        help="If specified, try to load './scores.json', or create it. Scores are then saved in this same file.")
+    parser.add_argument("--scoref", type=str, default="./scores.json",
+                        help="path to the file to load/save scores. Default: 'scores.json'")
     return parser.parse_args()
 
 
@@ -33,14 +36,17 @@ def main():
     args = parse_arguments()
     
     # load existing scores or create new scores if not provided
-    score_file = input("Enter the name of the score file (or press ENTER if there isn't any): ").lower()
-    if score_file == "":
-        scores = {}
-    else:
-        scores = load_scores(score_file)
-
+    scores = {}
+    if args.save:
+        if os.path.exists(args.scoref):
+            scores = load_scores(args.scoref)
+        else:
+	    print("{} does not exist yet. New scores will be saved in this file.".format(args.scoref))
+    
     # Welcoming the player
     player = load_player(scores)
+    
+    # Draw hangman or not
     draw = input("Draw the hangman? (y/N) ").lower() == "y"
     print("\n\n")
         
@@ -57,14 +63,10 @@ def main():
             break
     
     # save scores
-    if score_file == "":
-        score_file = input("Enter a file name to store the scores (or press ENTER to not save the scores): ")
-    if score_file == "":
-        print("Not saving the scores.")
-    else:
-        print("Saving the scores in '{}'".format(score_file))
-        save_scores(scores, score_file)
-    
+    if args.save:
+        save_scores(scores, args.scoref)
+        print("Saving the scores in '{}'".format(args.scoref))
+     
     return
 
 
