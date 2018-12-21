@@ -27,3 +27,11 @@ python main.py
 Create a custom list of words and save it in a text file, **one word per line**. Then: `python main.py --words <your_file>`
 
 ## Save players and scores
+
+Add `--save` to your command: 
+```bash
+python main.py --save
+```
+Player *names* and *scores* will be saved (and loaded if a save file already exists). 
+
+By default, this information is saved in (and loaded from) `scores.json`. You can change this file with the `--scoref` option, for instance: `python main.py --save --scoref another_score_file.json` 
