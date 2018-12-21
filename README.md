@@ -1,11 +1,21 @@
-# Hangman Game
+<h1 align="center">
+  Hangman Game
+</h1>
 
-A command line [Hangman Game](https://en.wikipedia.org/wiki/Hangman_(game)). 
+<p align="center">
+  A command line <a href="https://en.wikipedia.org/wiki/Hangman_(game)">Hangman Game</a>. 
+</p>
 
-![Hangman Gif](hangman.gif)
+<p align="center">
+  <img alt="Hangman Gif" src="hangman.gif">
+</p>
 
-[Installation](#installation) • [How to play?](#how-to-play) • [List of words](#list-of-words) • [Save players and scores](#save-players-and-scores)
-
+<p align="center">
+  <a href="#installation">Installation</a> •
+  <a href="#how-to-play">How To Play</a> •
+  <a href="#list-of-words">List of words</a> •
+  <a href="#save-players-and-scores">Save players and scores</a>
+</p>
 
 ## Installation 
 
