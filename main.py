@@ -22,11 +22,11 @@ def parse_arguments():
     parser = argparse.ArgumentParser(description="Hangman game", formatter_class=argparse.RawTextHelpFormatter)
     
     parser.add_argument("--words", type=str, default="./english.txt",
-                         help="path to the file containing the list of allowed words to play with")
+            help="Path to the file containing the list of allowed words to play with (default: %(default)s).")
     parser.add_argument("--save", action="store_true", 
                         help="If specified, try to load './scores.json', or create it. Scores are then saved in this same file.")
     parser.add_argument("--scoref", type=str, default="./scores.json",
-                        help="path to the file to load/save scores. Default: 'scores.json'")
+            help="path to the file to load/save scores (default: %(default)s).")
     return parser.parse_args()
 
 
