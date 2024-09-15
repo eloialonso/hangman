@@ -148,10 +148,10 @@ def game(words, n_trials=8, draw=False):
         print("Word: {}".format(revealed_word))
         if draw:
             draw_hangman(step)
-        letter = input(">>> Trial {} on {} : ".format(trial, n_trials)).lower()
-        # Enter "stop" to stop the game
-        if letter.lower() == "stop":
-            return 0, False
+        letter = input(">>> Trial {} on {} (enter 'exit' to quit): ".format(trial, n_trials)).lower()
+        # Enter "exit" to quit the game
+        if letter.lower() == "exit":
+            return 0, False, True
         if len(letter) != 1:
             previous_message = "You must enter one and only one letter!\n"
             continue
@@ -175,7 +175,7 @@ def game(words, n_trials=8, draw=False):
             # compute score
             score = n_trials - trial + 1
             print("Your score: {}".format(score))
-            return score, True
+            return score, True, False
         # Good letter
         if tmp_word != revealed_word:
             used_letters.sort(key=lambda v: v.upper())
@@ -199,7 +199,7 @@ def game(words, n_trials=8, draw=False):
         draw_hangman(step)
 
     print("*** GAME OVER! \nThe hidden word was: {}".format(word))
-    return 0, True
+    return 0, True, False
 
 
 def draw_hangman(step=0):
@@ -227,7 +227,7 @@ def draw_hangman(step=0):
     if step >= 7:
         l5 = "/"
     if step >= 8:
-        l5 = "/ \ "
+        l5 = "/ \\ "
     print("\n\n_________________")
     print("|  /           |")
     print("| /            |")

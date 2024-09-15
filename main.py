@@ -62,7 +62,7 @@ def main():
     player = load_player(scores)
 
     # Draw hangman or not
-    draw = input("Draw the hangman? (y/N) ").lower() == "y"
+    draw = input("Draw the hangman? (Y/n) ").lower() != "n"
     print("\n\n")
 
     # Load words
@@ -70,11 +70,12 @@ def main():
 
     # start the game
     while True:
-        print("\nNOTE: to stop the game, enter 'stop' instead of your guess\n")
-        score, end = game(words, draw=draw)
+        score, end, leave = game(words, draw=draw)
+        if leave:
+            return
         if end:
             update_player_score(scores, player, score)
-        if input("Do you want to continue? [Y/n] \n").lower() == "n":
+        if input("Continue [Y/n]?\n").lower() == "n":
             break
 
     # save scores
