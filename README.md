@@ -17,13 +17,10 @@
   <a href="#save-players-and-scores">Save players and scores</a>
 </p>
 
-## Installation 
-
-`git clone https://github.com/bloodymosquito/hangman`
-
 ## How to play?
 
 ```bash
+git clone https://github.com/eloialonso/hangman
 cd hangman
 python main.py
 ```
