@@ -12,8 +12,7 @@ except NameError:
     pass
 
 
-clear = lambda: os.system('clear||cls')
-
+clear = lambda: os.system("clear||cls")
 
 
 def reset_scores(score_file):
@@ -62,7 +61,11 @@ def display_player_score(player, scores):
         history = scores[joueur][1]
         n_games = len(history)
         avg_score = score / n_games
-        print("Player: {} \nAverage score: {} \nBest score: {}".format(player, avg_score, max(history)))
+        print(
+            "Player: {} \nAverage score: {} \nBest score: {}".format(
+                player, avg_score, max(history)
+            )
+        )
 
 
 def update_player_score(scores, player, new_score):
@@ -88,7 +91,7 @@ def reveal_letter(word, current_word, letter):
     """
     assert len(word) == len(current_word)
     revealed_word = ""
-    for (l, x) in zip(word, current_word):
+    for l, x in zip(word, current_word):
         if l != letter:
             revealed_word += x
         else:
@@ -108,7 +111,9 @@ def load_player(scores):
     """
     player = input("Player name: ")
     if player in scores:
-        chain = "Welcome back {} ! Your current score is {}".format(player, scores[player][0])
+        chain = "Welcome back {} ! Your current score is {}".format(
+            player, scores[player][0]
+        )
         star = "\n" + "*" * (len(chain) + 8)
         print(star + "\n")
         print("*** " + chain + " ***" + "\n")
@@ -162,7 +167,11 @@ def game(words, n_trials=8, draw=False):
         if tmp_word == word:
             s = "" if trial == 1 else "s"
             clear()
-            print("*** CONGRATULATIONS! \nYou found '{}' in {} trial{}".format(word, trial, s))
+            print(
+                "*** CONGRATULATIONS! \nYou found '{}' in {} trial{}".format(
+                    word, trial, s
+                )
+            )
             # compute score
             score = n_trials - trial + 1
             print("Your score: {}".format(score))
@@ -170,7 +179,9 @@ def game(words, n_trials=8, draw=False):
         # Good letter
         if tmp_word != revealed_word:
             used_letters.sort(key=lambda v: v.upper())
-            previous_message = "Well done, this letter ('{}') is right! \n".format(letter)
+            previous_message = "Well done, this letter ('{}') is right! \n".format(
+                letter
+            )
         # Bad letter
         else:
             used_letters.pop()
@@ -196,12 +207,12 @@ def draw_hangman(step=0):
     Arguments:
         step: integer defining the current state of the hangman
     """
-    l1=""
-    l2=""
-    l3=""
-    l4=""
-    l5=""
-    if step>= 1:
+    l1 = ""
+    l2 = ""
+    l3 = ""
+    l4 = ""
+    l5 = ""
+    if step >= 1:
         l1 = "|"
     if step >= 2:
         l2 = "O"
@@ -211,7 +222,7 @@ def draw_hangman(step=0):
         l3 = "_|"
     if step >= 5:
         l3 = "_|_"
-    if step >= 6 :
+    if step >= 6:
         l4 = "|"
     if step >= 7:
         l5 = "/"
